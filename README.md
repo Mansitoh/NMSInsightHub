@@ -1,7 +1,7 @@
-#🚀 **Welcome to NMSInsightHub – Your Comprehensive Guide to Minecraft Server Code!**
+#🚀 #**Welcome to NMSInsightHub – Your Comprehensive Guide to Minecraft Server Code!**
 
 **Overview:**
-Explore the intricacies of Minecraft server development with NMSInsightHub, a dedicated platform aimed at providing detailed explanations of the codebase. Whether you're a seasoned developer or just starting, our goal is to make NetMinecraft.Server (NMS) code accessible and understandable.
+Explore the intricacies of Minecraft server development with NMSInsightHub, a dedicated platform aimed at providing detailed explanations of the codebase. Whether you're a seasoned developer or just starting, our goal is to make (NMS) code accessible and understandable.
 
 **Key Features:**
 
