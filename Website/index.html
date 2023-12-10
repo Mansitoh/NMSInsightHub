@@ -33,7 +33,7 @@
         function readCSV(fileName) {
             console.log('Intentando cargar archivo:', fileName);
             
-            fetch(`/NMSMappings/${fileName}`)
+            fetch(`https://raw.githubusercontent.com/mansitoh/NMSInsightHub/Website/NMSMappings/${fileName}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('No se pudo cargar el archivo.');
