@@ -1,0 +1,16 @@
+Class (1.20.2);Method;What returns
+net.minecraft.world.entity.Entity;ah();(int) Entity Id
+net.minecraft.world.entity.Entity;cv();(UUID) Entity UUID
+net.minecraft.world.entity.Entity;dq();(Double) X Coordinate Position
+net.minecraft.world.entity.Entity;ds();(Double) Y Coordinate Position
+net.minecraft.world.entity.Entity;dw();(Double) Z Coordinate Position
+net.minecraft.world.entity.Entity;dD();(float) Entity Pitch
+net.minecraft.world.entity.Entity;dB();(float) Entity Yaw
+net.minecraft.world.entity.Entity;ag();(EntityTypes<?>) ... IDK
+net.minecraft.world.entity.Entity;p(double x, double y, double z);(void) Set Entity Location
+net.minecraft.world.phys.Vec3D;a();(double) X Coordinate of Vector3D
+net.minecraft.world.phys.Vec3D;b();(double) Y Coordinate of Vector3D
+net.minecraft.world.phys.Vec3D;c();(double) Z Coordinate of Vector3D
+net.minecraft.server.level.EntityPlayer;d(double x, double y, double z);(void) Set EntityPlayer Location
+net.minecraft.server.network.PlayerConnection;a(Packet<?> packet);(boolean) Send Packet
+org.bukkit.craftbukkit.v1_20_R2.entity.CraftPlayer;getHandle();(EntityPlayer) Returns instance of EntityPlayer

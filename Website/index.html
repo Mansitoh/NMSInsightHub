@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer archivos CSV</title>
+</head>
+<body>
+    <select id="fileSelect">
+        <option value="v1_20_R2.csv">v1_20_R2.csv</option>
+        <option value="archivo2.csv">archivo2.csv</option>
+        <!-- Añadir más opciones según sea necesario -->
+    </select>
+    <table id="dataTable" border="1">
+        <thead>
+            <tr id="headerRow">
+                <!-- Encabezados de columna se agregarán aquí dinámicamente -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se mostrarán los datos -->
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('fileSelect').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const selectedFile = event.target.value;
+            readCSV(selectedFile);
+        }
+
+        function readCSV(fileName) {
+            console.log('Intentando cargar archivo:', fileName);
+            
+            fetch(`/NMSMappings/${fileName}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo.');
+                    }
+                    return response.text();
+                })
+                .then(contents => {
+                    console.log('Contenido del archivo cargado:', contents);
+
+                    const rows = contents.split('\n');
+
+                    // Eliminar filas y encabezados existentes
+                    const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+                    const tableHeader = document.getElementById('headerRow');
+                    tableBody.innerHTML = '';
+                    tableHeader.innerHTML = '';
+
+                    // Iterar sobre las filas y columnas
+                    for (const rowIndex in rows) {
+                        const columns = rows[rowIndex].split(';');
+                        const newRow = document.createElement('tr');
+
+                        for (const colIndex in columns) {
+                            if (rowIndex == 0) {
+                                // Agregar encabezados si es la primera fila
+                                const newHeader = document.createElement('th');
+                                newHeader.textContent = `Columna ${parseInt(colIndex) + 1}`;
+                                tableHeader.appendChild(newHeader);
+                            }
+
+                            const newCell = document.createElement('td');
+                            newCell.textContent = columns[colIndex];
+                            newRow.appendChild(newCell);
+                        }
+
+                        tableBody.appendChild(newRow);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar el archivo:', error);
+                });
+        }
+    </script>
+</body>
+</html>
